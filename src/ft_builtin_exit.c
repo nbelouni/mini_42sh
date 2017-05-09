@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:21 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:38 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 01:53:41 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 void	ft_del_core(t_core *core)
 {

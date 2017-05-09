@@ -6,14 +6,14 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:14:59 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/03 21:14:59 by dogokar          ###   ########.fr       */
+/*   Updated: 2017/05/09 01:09:38 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef JOB_H
 # define JOB_H
 # include "list.h"
-# include "ft_21sh.h"
+# include "ft_42sh.h"
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <sys/uio.h>
@@ -43,19 +43,21 @@ typedef enum		e_type_if
 	IF_AND
 }					t_type_if;
 
-struct				s_node{
+typedef struct		s_node
+{
 	void			*data;
 	size_t			size;
 	t_type_node		type;
 	t_node_p		left;
 	t_node_p		right;
-};
+}					t_node;
 
 typedef struct s_condition_if *t_condition_if_p;
 
-struct				s_condition_if{
+typedef struct		s_condition_if
+{
 	t_type_if	type;
-};
+}					t_condition_if;
 
 typedef struct s_process *t_process_p;
 

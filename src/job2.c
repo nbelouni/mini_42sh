@@ -6,18 +6,18 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:33 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:40 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 01:06:32 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 t_node_p		new_node(t_type_node type, size_t size)
 {
 	t_node_p	ptr;
 
-	ptr = malloc(sizeof(*ptr));
-	ft_bzero(ptr, sizeof(*ptr));
+	ptr = malloc(sizeof(t_node));
+	ft_bzero(ptr, sizeof(t_node));
 	ptr->type = type;
 	ptr->size = size;
 	return (ptr);
@@ -36,8 +36,8 @@ t_process_p		new_process(char **argv)
 {
 	t_process_p ptr;
 
-	ptr = malloc(sizeof(*ptr));
-	ft_bzero(ptr, sizeof(*ptr));
+	ptr = malloc(sizeof(t_process));
+	ft_bzero(ptr, sizeof(t_process));
 	ptr->argv = argv;
 	return (ptr);
 }

@@ -1,8 +1,8 @@
-NAME = 21sh
+NAME = 42sh
 
 IDIR = ./inc/
 ILIB = ./libft/inc
-INCS = ft_21sh.h	\
+INCS = ft_42sh.h	\
 	   read.h		\
 	   lex.h		\
 	   exec.h		\
@@ -131,7 +131,7 @@ ODIR = ./obj/
 OBJS = $(SRCS:.c=.o)
 OBCC = $(addprefix $(ODIR),$(OBJS))
 
-FLAG =  -Wall -Werror -Wextra #-g -fsanitize=address
+FLAG =  -Wall -Werror -Wextra -g #-fsanitize=address
 
 $(NAME): $(OBCC)
 	make -C ./libft/

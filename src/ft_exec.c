@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:28 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/03 21:13:28 by dogokar          ###   ########.fr       */
+/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void			not_binary(char *s, char *s2, char **av, char **envp)
 		(s2) ? free(s2) : 0;
 		(envp) ? ft_tabdel(envp) : 0;
 		if (lstat(av[0], &st) == 0 && st.st_mode & S_IXUSR)
-			ft_putstr_fd("21sh: exec format error: ", 2);
+			ft_putstr_fd("42sh: exec format error: ", 2);
 		else if (lstat(av[0], &st) == 0)
-			ft_putstr_fd("21sh: permission denied: ", 2);
+			ft_putstr_fd("42sh: permission denied: ", 2);
 		else if (!s)
-			ft_putstr_fd("21sh: no such file or directory: ", 2);
+			ft_putstr_fd("42sh: no such file or directory: ", 2);
 		else
-			ft_putstr_fd("21sh: command not found: ", 2);
+			ft_putstr_fd("42sh: command not found: ", 2);
 		ft_putendl_fd(av[0], 2);
 		exit(1);
 	}
@@ -104,6 +104,9 @@ void			ft_exec(char **av)
 		if (!s)
 			break ;
 	}
+	(s) ? free(s) : 0;
+	(s2) ? free(s2) : 0;
+	(envp) ? ft_tabdel(envp) : 0;
 	exit(1);
 }
 

@@ -6,14 +6,14 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:14:59 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/03 21:14:59 by dogokar          ###   ########.fr       */
+/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEX_H
 # define LEX_H
 
-# include "ft_21sh.h"
+# include "ft_42sh.h"
 
 # define ISAMP(x) (x->type == DIR_L_AMP || x->type == DIR_R_AMP)
 # define NEXTISCMD(x) (x->next->type == CMD || x->next->type == ARG)

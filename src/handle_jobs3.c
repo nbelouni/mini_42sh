@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:31 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:38 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 #include "io.h"
 #include "job.h"
 #include <errno.h>
@@ -63,7 +63,7 @@ int				do_pipe(t_process_p p1, t_process_p p2, int *io_pipe)
 	t_io		*io_out[2];
 
 	if (pipe(io_pipe) == -1)
-		exit(ft_print_error("21sh", ERR_PIPE, ERR_EXIT));
+		exit(ft_print_error("42sh", ERR_PIPE, ERR_EXIT));
 	do_pipe_in(io_in, io_pipe);
 	io_out[0] = new_io();
 	io_out[1] = new_io();
@@ -93,7 +93,7 @@ int				make_children(t_process_p p)
 		signal(SIGCHLD, SIG_DFL);
 	}
 	else if (pid < 0)
-		exit(ft_print_error("21sh", ERR_FORK, ERR_EXIT));
+		exit(ft_print_error("42sh", ERR_FORK, ERR_EXIT));
 	else
 		p->pid = pid;
 	return (pid);

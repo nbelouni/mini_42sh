@@ -6,11 +6,11 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 21:23:52 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:25:54 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:30:51 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 int			is_number(char *s, int len)
 {

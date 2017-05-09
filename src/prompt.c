@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:34 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:40 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:30:51 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 t_prompt	manage_prompt(char *s, int num)
 {

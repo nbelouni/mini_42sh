@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:30 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:38 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 int		ft_quicksub_with_args2(t_elem *tail, char *tmp, char *p, char **s)
 {
@@ -23,7 +23,7 @@ int		ft_quicksub_with_args2(t_elem *tail, char *tmp, char *p, char **s)
 	else
 	{
 		if ((*s = ft_strreplace(tail->name, tmp, tmp2)) == NULL)
-			ret = ft_print_error("21sh", ERR_SUBSTITUTION, ERR_NEW_CMD);
+			ret = ft_print_error("42sh", ERR_SUBSTITUTION, ERR_NEW_CMD);
 		ft_strdel(&tmp2);
 	}
 	return (ret);
@@ -42,7 +42,7 @@ int		ft_quicksub_with_args(t_elem *tail, char **s, int *i)
 	if (ptr[1] == '^')
 	{
 		if ((*s = ft_strreplace(tail->name, tmp2, "")) == NULL)
-			ret = ft_print_error("21sh", ERR_SUBSTITUTION, ERR_NEW_CMD);
+			ret = ft_print_error("42sh", ERR_SUBSTITUTION, ERR_NEW_CMD);
 	}
 	else
 		ret = ft_quicksub_with_args2(tail, tmp2, ptr, s);
@@ -58,12 +58,12 @@ int		ft_exec_quick_sub(t_elem *tail, char **s, int *i)
 	*i += 1;
 	ret = 0;
 	if ((*s)[*i] == '^')
-		return (ft_print_error("21sh", ERR_SUBSTITUTION, ERR_NEW_CMD));
+		return (ft_print_error("42sh", ERR_SUBSTITUTION, ERR_NEW_CMD));
 	tmp = *s;
 	if (ft_strchr(&((*s)[*i]), '^') == NULL)
 	{
 		if ((*s = ft_strreplace(tail->name, &(*s)[*i], "")) == NULL)
-			ret = ft_print_error("21sh", ERR_SUBSTITUTION, ERR_NEW_CMD);
+			ret = ft_print_error("42sh", ERR_SUBSTITUTION, ERR_NEW_CMD);
 	}
 	else
 		ret = ft_quicksub_with_args(tail, s, i);

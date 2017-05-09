@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:33 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:40 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 01:06:04 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 #include "list.h"
 #include "io.h"
 
@@ -69,7 +69,7 @@ t_job				*create_job(t_tree *root, int foreground)
 	t_job	*job;
 
 	job = ft_memalloc(sizeof(t_job));
-	ft_bzero(job, sizeof(*job));
+	ft_bzero(job, sizeof(t_job));
 	job->foreground = foreground;
 	job->process_tree = create_process_tree(root);
 	return (job);
@@ -92,8 +92,8 @@ t_condition_if_p	new_condition_if(t_type_if type)
 {
 	t_condition_if_p	ptr;
 
-	ptr = malloc(sizeof(*ptr));
-	ft_bzero(ptr, sizeof(*ptr));
+	ptr = malloc(sizeof(t_condition_if));
+	ft_bzero(ptr, sizeof(t_condition_if));
 	ptr->type = type;
 	return (ptr);
 }

@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:20 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:38 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 int			print_sub(t_lst *hist, char **s, int *i)
 {
@@ -40,7 +40,7 @@ int			switch_bang(t_lst *hist, char **s, int *i)
 	char	*n;
 
 	if (!((*s)[*i]))
-		return (ft_print_error("21sh: event not found: ", *s, -1));
+		return (ft_print_error("42sh: event not found: ", *s, -1));
 	n = NULL;
 	ret = 0;
 	if (((*s)[*i]) == '!')

@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:34 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:40 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 01:06:49 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 #include "list.h"
 #include "job.h"
 #include "io.h"
@@ -115,6 +115,6 @@ t_node_p		create_redir(t_tree *node_redir, t_node_p left_node)
 	io->dup_target = left;
 	set_mode_redir(node_redir, io, left);
 	process = ((t_list *)left_node->data)->content;
-	insert_link_bottom(&(process->io_list), new_link(io, sizeof(*io)));
+	insert_link_bottom(&(process->io_list), new_link(io, sizeof(t_io)));
 	return (left_node);
 }

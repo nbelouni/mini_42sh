@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:29 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:38 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 /*
 **	ft_init_set initialise une nouvelle liste en l'allouant et en mettant tous
@@ -22,7 +22,7 @@ extern t_core	*g_core;
 int			ft_init_core(void)
 {
 	if ((g_core = malloc(sizeof(t_core))) == NULL)
-		return (ft_print_error("21sh :", ERR_MALLOC, ERR_EXIT));
+		return (ft_print_error("42sh :", ERR_MALLOC, ERR_EXIT));
 	g_core->env = NULL;
 	g_core->set = NULL;
 	g_core->exp = NULL;

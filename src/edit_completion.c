@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:20 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:38 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 int			fill_command(t_slist **list, char *path)
 {
@@ -23,7 +23,7 @@ int			fill_command(t_slist **list, char *path)
 	if (!path)
 		return (0);
 	if (!(bin_path = ft_strsplit(path, ':')))
-		return (ft_print_error("21sh: ", ERR_MALLOC, ERR_EXIT));
+		return (ft_print_error("42sh: ", ERR_MALLOC, ERR_EXIT));
 	while (bin_path[++i])
 	{
 		if ((dirp = opendir(bin_path[i])) != NULL)
@@ -50,7 +50,7 @@ int			insert_next(t_slist *tmp, char *s)
 	{
 		tmp_next = (tmp->next) ? tmp->next : NULL;
 		if (!(tmp->next = create_sort_list(ft_strdup(s))))
-			return (ft_print_error("21sh: ", ERR_MALLOC, ERR_EXIT));
+			return (ft_print_error("42sh: ", ERR_MALLOC, ERR_EXIT));
 		tmp->next->prev = tmp;
 		tmp->next->next = tmp_next;
 		if (tmp_next)
@@ -67,7 +67,7 @@ int			insert_in_list(t_slist **list, char *s)
 	if (s && !*list)
 	{
 		if (!(*list = create_sort_list(ft_strdup(s))))
-			return (ft_print_error("21sh: ", ERR_MALLOC, ERR_EXIT));
+			return (ft_print_error("42sh: ", ERR_MALLOC, ERR_EXIT));
 	}
 	else if (s)
 	{
@@ -75,7 +75,7 @@ int			insert_in_list(t_slist **list, char *s)
 		if (tmp && ft_strcmp(tmp->s, s) > 0)
 		{
 			if (!(tmp_next = create_sort_list(ft_strdup(s))))
-				return (ft_print_error("21sh: ", ERR_MALLOC, ERR_EXIT));
+				return (ft_print_error("42sh: ", ERR_MALLOC, ERR_EXIT));
 			tmp_next->next = tmp;
 			tmp->prev = tmp_next;
 			*list = tmp_next;

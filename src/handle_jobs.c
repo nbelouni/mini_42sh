@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:31 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:38 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 00:10:19 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 #include "io.h"
 #include "job.h"
 #include <errno.h>
@@ -109,7 +109,7 @@ void			launch_job(t_job *j)
 	last = 0;
 	current = j->process_tree;
 	stack = NULL;
-	insert_link_bottom(&g_job_list, new_link(j, sizeof(*j)));
+	insert_link_bottom(&g_job_list, new_link(j, sizeof(t_job)));
 	while ((current = iter_in_order(current, &stack)))
 	{
 		if (current->type == IF)

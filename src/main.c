@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:34 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:40 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 01:27:42 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 t_list	*g_job_list = NULL;
 t_core	*g_core = NULL;
@@ -63,7 +63,7 @@ static int	launch_execution(int ret, t_token *list)
 	ast = NULL;
 	if ((ret = ft_check_history_var(g_core)) == ERR_EXIT)
 	{
-		return (ft_print_error("21sh: ", ERR_MALLOC, ERR_EXIT));
+		return (ft_print_error("42sh: ", ERR_MALLOC, ERR_EXIT));
 	}
 	ft_push_ast(list, &ast);
 	export_job(ast, &job_list_bis);
@@ -82,11 +82,11 @@ static int	pre_core(t_buf **buf, t_completion *completion, char **envp)
 	if (ft_creat_core(envp) == ERR_EXIT)
 		return (ERR_EXIT);
 	if (!(*buf = init_buf()))
-		return (ft_print_error("21sh", ERR_MALLOC, ERR_EXIT));
+		return (ft_print_error("42sh", ERR_MALLOC, ERR_EXIT));
 	if (init_completion(completion, g_core) == ERR_EXIT)
 		return (-1);
 	if (!isatty(0))
-		return (ft_print_error("21sh", " : Input not from a tty", ERR_NEW_CMD));
+		return (ft_print_error("42sh", " : Input not from a tty", ERR_NEW_CMD));
 	set_prompt(PROMPT1, ft_strlen(PROMPT1));
 	init_shell();
 	g_core->buf = *buf;
@@ -111,7 +111,7 @@ static int	exec_core(int ret, t_completion *completion)
 	ret_subs = bang_substitution(&(g_core->buf->final_line), g_core);
 	if (find_quote_end(g_core->buf->final_line) == TRUE
 	&& ft_cmd_to_history(g_core->hist, g_core->buf->final_line) == ERR_EXIT)
-			return (ft_print_error("21sh: ", ERR_MALLOC, ERR_EXIT));
+			return (ft_print_error("42sh: ", ERR_MALLOC, ERR_EXIT));
 	ret = parse_buf(&list, g_core->buf->final_line, completion, g_core->hist);
 	if (ret > 0 && list && ret_subs == 0)
 		ret = launch_execution(ret, list);

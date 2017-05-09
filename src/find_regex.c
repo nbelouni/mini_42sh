@@ -6,11 +6,11 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 21:08:34 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:38 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 
 int			insert_in_next(t_reg_path *c, t_reg_path **next, char *d_name)
 {
@@ -20,7 +20,7 @@ int			insert_in_next(t_reg_path *c, t_reg_path **next, char *d_name)
 
 	t = ft_strcmp(c->path, "/") ? ft_strjoin(c->path, "/") : ft_strdup(c->path);
 	if (!(np = ft_strjoin(t, d_name)))
-		return (ft_print_error("ft_21sh : ", ERR_MALLOC, ERR_EXIT));
+		return (ft_print_error("ft_42sh : ", ERR_MALLOC, ERR_EXIT));
 	ft_strdel(&t);
 	if (c->is_abs == FALSE)
 	{
@@ -33,7 +33,7 @@ int			insert_in_next(t_reg_path *c, t_reg_path **next, char *d_name)
 	if (*next == NULL)
 	{
 		if (!(*next = ft_reg_pathnew(np, no, c->level + 1, c->is_abs)))
-			return (ft_print_error("ft_21sh : ", ERR_MALLOC, ERR_EXIT));
+			return (ft_print_error("ft_42sh : ", ERR_MALLOC, ERR_EXIT));
 	}
 	else
 		ft_reg_pathadd(next, ft_reg_pathnew(np, no, c->level + 1, c->is_abs));

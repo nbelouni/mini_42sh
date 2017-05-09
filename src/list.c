@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:34 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/03 21:13:34 by dogokar          ###   ########.fr       */
+/*   Updated: 2017/05/08 23:47:49 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	*new_link(void *content, size_t content_size)
 {
 	t_list	*link;
 
-	if ((link = malloc(sizeof(*link))) == NULL)
+	if ((link = malloc(sizeof(t_list))) == NULL)
 		return (NULL);
-	ft_bzero(link, sizeof(*link));
+	ft_bzero(link, sizeof(t_list));
 	link->content = content;
 	link->content_size = content_size;
 	return (link);

@@ -6,14 +6,14 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 15:31:30 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:22:21 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GLOBBING_H
 # define GLOBBING_H
 
-# include "ft_21sh.h"
+# include "ft_42sh.h"
 
 typedef struct s_core	t_core;
 typedef _Bool			t_bool;

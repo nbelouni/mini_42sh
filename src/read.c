@@ -6,11 +6,11 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:35 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:21:40 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_21sh.h"
+#include "ft_42sh.h"
 #include "read.h"
 #include <errno.h>
 
@@ -23,7 +23,7 @@ int			cpy_cut_paste(t_buf *buf, int x)
 		if (vb_copy(buf, x) < 0)
 		{
 			m_right(calc_len(buf, END));
-			return (ft_print_error("\n21sh", ERR_MALLOC, ERR_EXIT));
+			return (ft_print_error("\n42sh", ERR_MALLOC, ERR_EXIT));
 		}
 	}
 	if (x == CTRL_B || x == CTRL_E || x == CTRL_K || x == CTRL_W)
@@ -31,7 +31,7 @@ int			cpy_cut_paste(t_buf *buf, int x)
 		if (vb_cut(buf, x) < 0)
 		{
 			m_right(calc_len(buf, END));
-			return (ft_print_error("\n21sh", ERR_MALLOC, ERR_EXIT));
+			return (ft_print_error("\n42sh", ERR_MALLOC, ERR_EXIT));
 		}
 	}
 	if (buf->size + buf->to_paste_size < BUFF_SIZE && x == CTRL_P)
@@ -39,7 +39,7 @@ int			cpy_cut_paste(t_buf *buf, int x)
 		if (vb_paste(buf) < 0)
 		{
 			m_right(calc_len(buf, END));
-			return (ft_print_error("\n21sh", ERR_CMD_TOO_LONG, ERR_NEW_CMD));
+			return (ft_print_error("\n42sh", ERR_CMD_TOO_LONG, ERR_NEW_CMD));
 		}
 	}
 	return (0);
@@ -52,7 +52,7 @@ int			read_modul(int x, t_buf *buf)
 		if (vb_insert(buf, (char *)&x) < 0)
 		{
 			m_right(calc_len(buf, END));
-			return (ft_print_error("\n21sh", ERR_CMD_TOO_LONG, ERR_NEW_CMD));
+			return (ft_print_error("\n42sh", ERR_CMD_TOO_LONG, ERR_NEW_CMD));
 		}
 		return (1);
 	}
@@ -62,7 +62,7 @@ int			read_modul(int x, t_buf *buf)
 int			mv_and_read(t_buf *buf, int x, int ret)
 {
 	if (ret < 0)
-		return (ft_print_error("\n21sh", ERR_READ, ERR_EXIT));
+		return (ft_print_error("\n42sh", ERR_READ, ERR_EXIT));
 	if (x == CTRL_D)
 		return (CTRL_D);
 	if (x == DEL)
