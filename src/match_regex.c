@@ -6,7 +6,7 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 21:03:44 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:51 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 02:03:32 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int			is_pool_char(char *s, char *rg, int *i_s, int *i_rg)
 		while (rg[*i_rg])
 		{
 			is_end(rg, i_rg, '\'');
-			is_end(rg, i_rg, '`');
 			is_end(rg, i_rg, '"');
 			if (is_char(rg, *i_rg, ']'))
 				break ;

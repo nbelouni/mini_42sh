@@ -6,7 +6,7 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 21:02:27 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 02:02:36 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ int			is_regex_in_text(char *s)
 	while (s[i])
 	{
 		is_end(s, &i, '\'');
-		is_end(s, &i, '`');
 		is_end(s, &i, '"');
 		if (is_char(s, i, '?') || is_char(s, i, '*'))
 			return (TRUE);
 		else if (is_char(s, i, '['))
 		{
 			is_end(s, &i, '\'');
-			is_end(s, &i, '`');
 			is_end(s, &i, '"');
 			if (find_next_char(s, i + 1, ']') >= 0)
 				return (TRUE);
@@ -48,7 +46,6 @@ int			is_regex(char *s, int i)
 			while (i < (int)ft_strlen(s) && !is_char(s, i, ']'))
 			{
 				is_end(s, &i, '\'');
-				is_end(s, &i, '`');
 				is_end(s, &i, '"');
 				i++;
 			}
@@ -69,14 +66,12 @@ int			find_last_len(char *s)
 	while (++i < (int)ft_strlen(s))
 	{
 		is_end(s, &i, '\'');
-		is_end(s, &i, '`');
 		is_end(s, &i, '"');
 		if (is_char(s, i, '['))
 		{
 			while (++i < (int)ft_strlen(s))
 			{
 				is_end(s, &i, '\'');
-				is_end(s, &i, '`');
 				is_end(s, &i, '"');
 				if (is_char(s, i, ']'))
 					break ;
@@ -113,7 +108,6 @@ int			count_slashs(char *s)
 	while (s[++i])
 	{
 		is_end(s, &i, '\'');
-		is_end(s, &i, '`');
 		is_end(s, &i, '"');
 		if (is_char(s, i, '/'))
 			n_slash++;

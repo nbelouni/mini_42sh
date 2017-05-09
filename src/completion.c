@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:19 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:09:31 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_slist(t_slist *lst, int n, char c)
 	int			max_len;
 	int			i;
 
-	close_termios();
+	c = can_add_slash(c);
 	tmp = lst;
 	max_len = max_len_sort_lst(lst, n) + 3;
 	if (max_len > g_curs.win_col)
@@ -43,10 +43,11 @@ void	print_slist(t_slist *lst, int n, char c)
 	ft_putchar_fd('\n', 1);
 }
 
-int		replace_cplt(t_buf *buf, char *ref, int bg)
+int		replace_cplt(t_buf *buf, char *ref, int bg, char c)
 {
-	int		len;
-	int		i;
+	int			len;
+	int			i;
+	struct stat	s;
 
 	len = (g_curs.win_col * g_curs.row + g_curs.col) - get_prompt_len() - bg;
 	while (len-- > 0)
@@ -55,6 +56,9 @@ int		replace_cplt(t_buf *buf, char *ref, int bg)
 	i = -1;
 	while (++i < len)
 		vb_insert(buf, &(ref[i]));
+	lstat(buf->line + find_word_begin(buf->line, bg), &s);
+	if ((S_ISDIR(s.st_mode) || S_ISLNK(s.st_mode)) && c == 'f')
+		vb_insert(buf, "/");
 	buf->size = ft_strlen(buf->line);
 	return (0);
 }
@@ -104,7 +108,7 @@ int		replace_or_print(t_buf *buf, t_slist *ref, int begin, char c)
 	else
 		n_lst = find_cplt(s + begin, ref, &lst, len);
 	if (n_lst == 1)
-		replace_cplt(buf, lst->s, begin);
+		replace_cplt(buf, lst->s, begin, c);
 	else if (n_lst > 1)
 		print_slist(lst, n_lst, c);
 	if (n_lst > 1)
@@ -138,7 +142,7 @@ int		complete_line(t_buf *buf, t_completion *cplt, char x)
 	if (is_cmd(buf->line, begin - 1) &&
 	(ret = replace_or_print(buf, cplt->command, begin, 0)) >= 0)
 		return (ret);
-	ret = fill_file(buf, &ref, &begin) + replace_or_print(buf, ref, begin, 0);
+	ret = fill_file(buf, &ref, &begin) + replace_or_print(buf, ref, begin, 'f');
 	destroy_sort_list((ref) ? &ref : NULL);
 	return (ret >= 0 ? ret : 0);
 }

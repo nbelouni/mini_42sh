@@ -6,7 +6,7 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 13:41:24 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:51 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 02:03:51 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char		**split_args(char *s)
 	{
 		end = 0;
 		is_end(s, &end, '\'');
-		is_end(s, &end, '`');
 		is_end(s, &end, '"');
 		end = (find_next_char(s, begin, '/') >= 0) ?
 		end + find_next_char(s, begin, '/') : ft_strlen(s) - begin;

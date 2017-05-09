@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:34 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/09 01:27:42 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:34:33 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,8 @@ int			main(int argc, char **argv, char **envp)
 	int				ret;
 	int				r;
 
-	(void)argc;
-	(void)argv;
+	if (argc > 1)
+		return(ft_print_error("42sh : cannot execute : ", argv[1], 0));
 	cplt.hostname = NULL;
 	cplt.command = NULL;
 	cplt.username = NULL;

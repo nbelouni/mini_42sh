@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:14:58 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:10:06 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,7 @@ int						init_completion(t_completion *cplt, t_core *core);
 */
 int						complete_line(t_buf *buf, t_completion *cplt, char x);
 void					home_tild(t_buf *buf, int *begin);
+
+int						can_add_slash(char c);
 
 #endif

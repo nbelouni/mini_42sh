@@ -6,7 +6,7 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 21:19:24 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 02:02:57 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int			find_pivot(char *s, int begin, char c)
 	while (i < s_len)
 	{
 		is_end(s, &i, '\'');
-		is_end(s, &i, '`');
 		is_end(s, &i, '"');
 		if (is_char(s, i, c))
 			return (i);
@@ -41,7 +40,6 @@ int			find_begin(char *s, int pivot)
 	while (--i >= 0)
 	{
 		is_begin(s, &i, '\'');
-		is_begin(s, &i, '`');
 		is_begin(s, &i, '"');
 		if (is_char(s, i, '}'))
 			lvl++;
@@ -68,7 +66,6 @@ int			find_end(char *s, int pivot)
 	while (++i < s_len)
 	{
 		is_end(s, &i, '\'');
-		is_end(s, &i, '`');
 		is_end(s, &i, '"');
 		if (is_char(s, i, '{'))
 			lvl++;
@@ -95,7 +92,6 @@ int			find_n_poss(char *s, int end)
 	while (++i < end)
 	{
 		is_end(s, &i, '\'');
-		is_end(s, &i, '`');
 		is_end(s, &i, '"');
 		if (is_char(s, i, '{'))
 			lvl++;
@@ -123,7 +119,6 @@ int			find_len(char *s, int end)
 	while (++i < end)
 	{
 		is_end(s, &i, '\'');
-		is_end(s, &i, '`');
 		is_end(s, &i, '"');
 		if (is_char(s, i, '{'))
 			lvl++;

@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 20:25:06 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:18:03 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,16 @@ int			is_new_prompt(t_token *prev)
 
 int			is_parse_error(t_token *tmp, t_token *prev)
 {
-	if (prev && is_dir_type(prev->type) &&
-	tmp && (is_dir_type(tmp->type) || tmp->type == TARGET))
-	{
-		if (ft_strlen(tmp->word) > 0 &&
-		is_number(tmp->word, ft_strlen(tmp->word)) == TRUE)
-			return (print_err_message(tmp->word));
-	}
 	if (is_separator_type(tmp->type) &&
 	(!prev || is_separator_type(prev->type) || is_dir_type(prev->type)))
+	{
 		return (print_err_message(tmp->word));
+	}
 	if (is_dir_type(tmp->type) &&
 	(prev && is_dir_type(prev->type)))
+	{
 		return (print_err_message(tmp->word));
+	}
 	return (0);
 }
 
