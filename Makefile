@@ -77,6 +77,7 @@ SRCS = 	ft_builtin_cd.c		\
 		find_quote_end.c	\
 		supp_quotes.c		\
 		globbing.c			\
+		globb_tools.c		\
 		here_doc.c			\
 		replace_expansions.c\
 		find_expansions.c	\

@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:28 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:39:18 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:41:18 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,8 @@ void			ft_exec(char **av)
 
 	s2 = NULL;
 	envp = ft_env_to_tab(g_core->env);
-	if (!(tmp = ft_find_elem("PATH", g_core->env)) || !tmp->value)
-		s = ft_strdup("");
-	else
-		s = ft_strdup(tmp->value);
+	tmp = ft_find_elem("PATH", g_core->env);
+	s = (!tmp || !tmp->value) ? ft_strdup("") : ft_strdup(tmp->value);
 	if (av && av[0] && av[0][0] && ((av[0][0] == '.' && av[0][1] == '/') ||
 			(av[0][0] == '/')))
 		not_binary(NULL, NULL, av, envp);

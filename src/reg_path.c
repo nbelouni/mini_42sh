@@ -6,13 +6,13 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 13:58:45 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:51 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:42:31 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_42sh.h"
 
-t_reg_path		*ft_reg_pathnew(char *path, char *out, int lvl, t_bool is_abs)
+t_reg_path	*ft_reg_pathnew(char *path, char *out, int lvl, t_bool is_abs)
 {
 	t_reg_path	*elem;
 

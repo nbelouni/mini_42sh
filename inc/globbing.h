@@ -6,7 +6,7 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 15:31:30 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:54:16 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,11 @@ int						find_regex(t_reg_path **c, t_reg_path **r,
 						char *s, int n);
 int						match_regex(char *s, char *rg_ref);
 int						regexp_in_tree(t_tree *node, t_core *env);
+
+int						init_new_value(char *v, t_core *core, char **new_value);
+int						replace_env_var(char **s, t_core *core);
+int						replace_tild(char **s, t_core *core);
+int						insert_new_args(char **s, t_reg_path **n,
+						t_reg_path *t);
 
 #endif
