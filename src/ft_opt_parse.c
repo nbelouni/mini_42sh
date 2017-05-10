@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:30 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/10 18:09:31 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ static int	ft_is_opt(int *opt, char *opts, char *arg, int *tabi)
 
 	i = 1;
 	if (arg[0] != '-' || (arg[0] == '-' && arg[1] == '\0'))
-	{
 		return (0);
-	}
 	if (arg[1] == '-')
 	{
 		return ((arg[2] && tabi[1] == 0) ? print_opt_err(opts, arg[2]) : 2);
 	}
+	if (is_number(arg, ft_strlen(arg)))
+		return (0);
 	else
 	{
 		while (arg[i] != '\0')

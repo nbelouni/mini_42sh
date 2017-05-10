@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:14:59 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/03 21:14:59 by dogokar          ###   ########.fr       */
+/*   Updated: 2017/05/09 20:22:53 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define UNSET_OPT			"fv"
 # define EXPORT_OPT			"p"
 # define HIST_OPTS			"cpsdanrw"
+# define ECHO_OPTS			"n"
 
 # define HIST_OPT_C			99
 # define HIST_OPT_P			112

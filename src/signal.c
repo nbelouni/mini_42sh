@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:35 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:51 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 23:27:28 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,6 @@ void		get_sigwinch(int sig)
 
 void		get_sigint(int sig)
 {
-	int status;
-	int pid;
-
-	pid = waitpid(-1, &status, WUNTRACED);
 	if (sig == SIGINT)
 	{
 		m_right(calc_len(g_core->buf, END));
@@ -57,7 +53,7 @@ void		get_sigint(int sig)
 		ft_strdel(&(g_core->buf->final_line));
 		set_prompt(PROMPT1, ft_strlen(PROMPT1));
 		clean_pos_curs();
-		ft_putchar('\n');
+		ft_putchar_fd('\n', 1);
 	}
 	return ;
 }

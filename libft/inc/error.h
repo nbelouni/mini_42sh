@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:15:44 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/03 21:15:44 by dogokar          ###   ########.fr       */
+/*   Updated: 2017/05/09 20:18:41 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@
 # define ERR_PIPE				": Error pipe"
 # define ERR_FORK				": Error fork"
 # define ERR_IS_DIR				": Is a directory"
+# define ERR_AMBIGUOUS_RDIR		"*?[] : ambiguous redirect"
 
 #endif

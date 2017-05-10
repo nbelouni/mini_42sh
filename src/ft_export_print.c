@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:28 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 23:24:31 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,14 @@ void		ft_print_lst_ex(t_lst *lst, int t)
 		while (elem != NULL)
 		{
 			if (t >= 1)
-				ft_putstr("declare -x ");
+				ft_putstr_fd("declare -x ", 1);
 			write(1, elem->name, ft_strlen(elem->name));
 			write(1, "=", 1);
 			if (elem->value != NULL)
 			{
-				ft_putchar('"');
+				ft_putchar_fd('"', 1);
 				write(1, elem->value, ft_strlen(elem->value));
-				ft_putchar('"');
+				ft_putchar_fd('"', 1);
 			}
 			write(1, "\n", 1);
 			elem = elem->next;

@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:34 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/09 16:42:09 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/10 17:56:51 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ int			parse_builtins(t_core *core, char *cmd, char **cmd_args)
 	i = -1;
 	while (g_builtin_array[++i].cmd)
 	{
-		if (ft_strcmp(g_builtin_array[i].cmd, cmd) == 0)
+		if (cmd)
 		{
-			return (g_builtin_array[i].func(core, cmd_args));
+			if (ft_strncmp(g_builtin_array[i].cmd, cmd, ft_strlen(cmd)) == 0)
+				return (g_builtin_array[i].func(core, cmd_args));
 		}
 	}
 	return (1);

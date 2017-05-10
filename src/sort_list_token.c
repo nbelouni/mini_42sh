@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:35 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:51 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 20:57:33 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ void	sort_list(t_token *elem)
 		elem->next->type = TARGET;
 	if (elem->type == TARGET && elem->next && NEXTISCMD(elem))
 		check_target_place(&elem);
+	if (elem->type == CMD && elem->prev && PREVISCMD(elem))
+		elem->type = ARG;
+	if (elem->type == CMD)
+		elem = is_local_var(elem);
 }
 
 int		sort_list_token(t_token **list, t_completion *completion, t_lst *hist)
@@ -72,13 +76,11 @@ int		sort_list_token(t_token **list, t_completion *completion, t_lst *hist)
 		if (ISAMP(elem) && elem->next && check_error_out(elem->next))
 			return (0);
 		sort_list(elem);
-		if (elem->type == CMD && elem->prev && PREVISCMD(elem))
-			elem->type = ARG;
-		if (elem->type == CMD)
-			elem = is_local_var(elem);
 		if (elem->type == DL_DIR && elem->next && elem->next->type == TARGET)
 			if (here_doc(elem->next, completion, hist) == ERR_NEW_CMD)
 				return (ERR_NEW_CMD);
+		if (!elem->prev || !is_dir_type(elem->prev->type))
+			expand_args(list, &elem);
 		elem = elem->next;
 	}
 	while ((*list) && (*list)->prev)

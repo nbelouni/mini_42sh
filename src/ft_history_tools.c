@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:29 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:49 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 23:26:34 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int			ft_print_history(t_lst *hist, int start)
 	{
 		if (tmp->name != NULL && tmp->name[0] != '\0')
 		{
-			ft_putnbr(i);
+			ft_putnbr_fd(i, 1);
 			(tmp->is_modified == 1) ? write(1, "*", 1) : 0;
 			ft_putnchar(' ', (7 - ft_intlen(i)));
 			ft_putendl_fd(tmp->name, 1);

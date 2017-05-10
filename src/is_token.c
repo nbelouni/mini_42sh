@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:33 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:50 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 20:50:01 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		count_prev_char(char *s, int i, char c)
 {
 	int len;
 
+	if (i >= (int)ft_strlen(s))
+		return (0);
 	len = 0;
 	while (i - len >= 0 && s[i - len] == c)
 	{

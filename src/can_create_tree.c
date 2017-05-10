@@ -6,14 +6,28 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 20:25:06 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/09 16:18:03 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 20:55:51 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_42sh.h"
 
-int			print_err_message(char *s)
+int			print_err_message(char *s, int token)
 {
+	if (token == SL_DIR)
+		s = "<";
+	else if (token == SR_DIR)
+		s = ">";
+	else if (token == DL_DIR)
+		s = "<<";
+	else if (token == DR_DIR)
+		s = ">>";
+	else if (token == LR_DIR)
+		s = "<>";
+	else if (token == DIR_L_AMP)
+		s = "<&";
+	else if (token == DIR_R_AMP)
+		s = ">&";
 	ft_putstr_fd("42sh: syntax error near unexpected token `", 2);
 	if (s)
 		ft_putstr_fd(s, 2);
@@ -29,9 +43,9 @@ int			is_new_prompt(t_token *prev)
 		if (!(prev = prev->next))
 			return (TRUE);
 		if (is_dir_type(prev->type))
-			return (print_err_message("newline"));
+			return (print_err_message("newline", 0));
 		if ((is_separator_type(prev->type) && prev->type != DOT) ||
-	(count_prev_char(prev->word, ft_strlen(prev->word), '\\') % 2 == 1))
+		(count_prev_char(prev->word, ft_strlen(prev->word), '\\') % 2 == 1))
 		{
 			set_prompt(PROMPT2, ft_strlen(PROMPT2));
 			return (ERR_NEW_PROMPT);
@@ -45,14 +59,13 @@ int			is_parse_error(t_token *tmp, t_token *prev)
 {
 	if (is_separator_type(tmp->type) &&
 	(!prev || is_separator_type(prev->type) || is_dir_type(prev->type)))
-	{
-		return (print_err_message(tmp->word));
-	}
-	if (is_dir_type(tmp->type) &&
-	(prev && is_dir_type(prev->type)))
-	{
-		return (print_err_message(tmp->word));
-	}
+		return (print_err_message(tmp->word, 0));
+	if (is_dir_type(tmp->type) && prev &&
+	(is_dir_type(prev->type) || (prev->prev && prev->prev->type == PIPE)))
+		return (print_err_message(tmp->word, tmp->type));
+	if (prev && is_dir_type(prev->type) &&
+	is_regex_in_text(tmp->word) == TRUE)
+		return (ft_print_error("42sh : ", ERR_AMBIGUOUS_RDIR, ERR_NEW_CMD));
 	return (0);
 }
 

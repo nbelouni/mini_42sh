@@ -6,7 +6,7 @@
 /*   By: dogokar <dogokar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 21:13:28 by dogokar           #+#    #+#             */
-/*   Updated: 2017/05/09 16:41:18 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/10 17:59:54 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ int				ft_check_exec(char ***cmd)
 	{
 		if ((e = ft_find_elem("?", g_core->set)))
 		{
-			s = ft_itoa(ret);
+			s = ft_itoa((ret < 0) ? ret * -1 : ret);
 			if (e->value)
 				e->value = ft_free_and_dup(e->value, s);
 			else

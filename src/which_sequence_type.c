@@ -6,7 +6,7 @@
 /*   By: nbelouni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 21:23:52 by nbelouni          #+#    #+#             */
-/*   Updated: 2017/05/08 23:30:51 by nbelouni         ###   ########.fr       */
+/*   Updated: 2017/05/09 21:22:28 by nbelouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int			is_number(char *s, int len)
 	int		i;
 
 	i = 0;
+	if (s[i] == '.')
+		return (FALSE);
 	if (s[0] == '+' || s[0] == '-')
 		i += 1;
 	while (i < len)
